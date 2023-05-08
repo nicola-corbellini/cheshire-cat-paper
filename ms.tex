@@ -14,7 +14,7 @@
 \usepackage{microtype}      % microtypography
 \usepackage{lipsum}		% Can be removed after putting your text content
 \usepackage{graphicx}
-\usepackage{natbib}
+%\usepackage{natbib}
 \usepackage{doi}
 
 
@@ -25,42 +25,40 @@
 %\date{} 					% Or removing it
 
 \author{
-
 Piero Savastano \thanks{Use footnote for providing further information about author (webpage, alternative address).} \\
 Independent Researcher\\
 Rome, Italy\\
-\texttt{piero.savastano@gmail.com}\\
+\texttt{piero.savastano@gmail.com}\\}
+%\And
+%Nicola Corbellini \\
+%Department of ...\\
+%University ...\\
+%City, Country \\
+%\texttt{nicola.corbellini@edu.unige.it} \\
+
+
+%\And
+%
+%Coauthor \\
+%Affiliation \\
+%Address \\
+%\texttt{email@emil.email} \\
+%
+%\And
+%
+%Coauthor \\
+%Affiliation \\
+%Address \\
+%\texttt{email@emil.email} \\
+%
+%\And
+%
+%Coauthor \\
+%Affiliation \\
+%Address \\
+%\texttt{email@emil.email} \\
 	
-\And
-	
-Nicola Corbellini \\
-Department of ...\\
-University ...\\
-City, Country \\
-\texttt{nicola.corbellini@edu.unige.it} \\
 
-\And
-
-Coauthor \\
-Affiliation \\
-Address \\
-\texttt{email@emil.email} \\
-
-\And
-
-Coauthor \\
-Affiliation \\
-Address \\
-\texttt{email@emil.email} \\
-
-\And
-
-Coauthor \\
-Affiliation \\
-Address \\
-\texttt{email@emil.email} \\
-	
-}
 
 
 %\date{23/03/2033}
@@ -84,7 +82,10 @@ Address \\
 \maketitle
 
 \begin{abstract}
-Recent developments in Large Language Models opened up a vast ecosystem of applications. We introduce an architecture aimed at the construction of long tail AI assistants. In the same way Content Management Systems allowed rapid diffusion and personalization of web applications, we propose an architecture and framework to do the same with AI assistants based on a language model. The architecture presents itself as a web service, featuring a vector long term memory, a file uploader and a plugin system for extendibility.
+Recent developments in Large Language Models opened up a vast ecosystem of applications.
+We introduce an architecture aimed at the construction of long tail AI assistants.
+In the same way Content Management Systems allowed rapid diffusion and personalization of web applications, we propose an architecture and framework to do the same with AI assistants based on a language model.
+The architecture presents itself as a web service, featuring a vector long term memory, a file uploader and a plugin system for extendibility.
 A Python implementation already exists here []
 \end{abstract}
 
@@ -112,14 +113,22 @@ Langchain, vector dbs
 
 \section{The Cheshire Cat architecture}
 
-Here we explain how the cat works
+In this section we describe how the framework is structured and how it works.
+
+The Cheshire Cat runs around three Docker containerized~\cite{merkel2014docker} microservices.
+These are: the \emph{core}, the \emph{admin} and the \emph{vector memory}.
+The first one is the backend service.
+This is a web API following the REST architectural style.
+As such, it was developed using the FastAPI Python framework~\cite{lathkar2023introduction}.
+The second one is the frontend services that comes as a...
+% the first is the backend API in FastAPI python, secondo is frontend service node.js app and terzo is vector database con qdrant - cerca cit.
 
 \subsection{Main loop}
 Main conversational flow
 
 \subsection{Large Language Model}
 - LLM agnosticism\\
-- LLM as a part, not as the whole AI (pure AGI via deep learning may arrive but in this way we accomplish control and feasability on the short term)\\
+- LLM as a part, not as the whole AI (pure AGI via deep learning may arrive but in this way we accomplish control and feasibility on the short term)\\
 - Neurosymbolic approach (mixture of neural and symbolic computation)\\
 - Main prompt
 
@@ -151,7 +160,7 @@ Citations use \verb+natbib+. The documentation may be found at
 	\url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
 \end{center}
 
-Here is an example usage of the two main commands (\verb+citet+ and \verb+citep+): Some people thought a thing \citep{kour2014real, hadash2018estimate} but other people thought something else \citep{kour2014fast}. Many people have speculated that if we knew exactly why \citet{kour2014fast} thought this\dots
+%Here is an example usage of the two main commands (\verb+citet+ and \verb+citep+): Some people thought a thing \citep{kour2014real, hadash2018estimate} but other people thought something else \citep{kour2014fast}. Many people have speculated that if we knew exactly why \citet{kour2014fast} thought this\dots
 
 \subsection{Figures}
 \lipsum[10]
